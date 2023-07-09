@@ -31,12 +31,11 @@ module.exports= function(sequelize,DataTypes){
         underscore: true
     }
     let Genre = sequelize.define(alias,cols,config)
-    // Genre.associate=  function(models){
-    //    Genre.hasMany(models.Movie,{
-    //         as: 'movies',
-           
-    //         foreignKey:'genre_id',
-    //     });
-    // }
+    Genre.associate=  function(models){
+       Genre.hasMany(models.Movie,{
+            as: 'movies',
+            foreignKey:'genre_id',
+        });
+    }
     return Genre;
 }
